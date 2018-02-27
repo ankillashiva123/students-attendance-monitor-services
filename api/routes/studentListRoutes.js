@@ -20,6 +20,7 @@ module.exports = function(app) {
 
     app.route('/messege/:rollNumber/content/:content')
     .post(studentList.sendMessage);
+    
     app.route('/auth/register')
     .post(userHandlers.register);
 

@@ -19,6 +19,7 @@
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.1",
     "mongoose": "^4.8.5",
+    "nexmo": "^2.2.0",
     "twilio": "^3.11.3"
   }
 }
