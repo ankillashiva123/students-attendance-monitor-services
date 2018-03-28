@@ -3,6 +3,14 @@ var mongoose = require('mongoose'),
    jwt = require('jsonwebtoken'),
    bcrypt = require('bcrypt'),
    User = mongoose.model('User');
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'ankillashiva123@gmail.com',
+    pass: 'Shiva@7799'
+  }
+});
    
 exports.register = function(req,res){
 
@@ -15,7 +23,24 @@ exports.register = function(req,res){
         });
       } else {
         user.hash_password = undefined;
+
+        var mailOptions = {
+          from: 'ankillashiva123@gmail.com',
+          to: req.body.email,
+          subject: 'Attenance Monotoring System Login Credentials',
+          text: 'Username:'+req.body.email+",passsword: "+req.body.password
+        };
+        
+        transporter.sendMail(mailOptions, function(error, info){
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+          }
+        });
+
         return res.json(user);
+
       }
     });
 

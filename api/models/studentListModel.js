@@ -4,31 +4,35 @@ var Schema = mongoose.Schema;
 var StudentSchema = new Schema({
 firstName: {
     type: String,
-    required: 'Kindly enter the name of the task'
+    required: 'Kindly enter the firstName'
   },
   secondName: {
     type: String,
-    required: 'Kindly enter the name of the task'
+    required: 'Kindly enter the secondName'
+  },
+  classId: {
+    type: Number,
+    default:null
   },
   department: {
     type: String,
-    required: 'Kindly enter the name of the task'
+    required: 'Kindly enter the departmentk'
   },
   rollNumber: {
     type: String,
-    required: 'Kindly enter the name of the task'
+    required: 'Kindly enter the rollNumber'
   },
   mailId: {
     type: String,
-    required: 'Kindly enter the name of the task'
+    required: 'Kindly enter the mailId'
   },
   emergencyContact: {
     type: String,
-    required: 'Kindly enter the name of the task'
+    
   },
   Contact: {
     type: String,
-    required: 'Kindly enter the name of the task'
+    required: 'Kindly enter theContact'
   },
   Created_date: {
     type: Date,

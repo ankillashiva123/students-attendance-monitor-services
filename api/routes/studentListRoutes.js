@@ -1,12 +1,16 @@
 'use strict';
 module.exports = function(app) {
   var studentList = require('../controllers/studentListController'),
-  userHandlers = require('../controllers/userController.js');
-  
+  userHandlers = require('../controllers/userController.js'),
+  fileUpload=require('../controllers/fileController'),
+  bodyParser = require('body-parser');
+ 
+  app.use(bodyParser.json());
   // studentList Routes
   app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
   });
   app.route('/studentsList')
@@ -26,4 +30,8 @@ module.exports = function(app) {
 
     app.route('/auth/sign_in')
     .post(userHandlers.sign_in);
+    app.route('/upload')
+    .post(fileUpload.fileUpload);
+    
+    
 };
