@@ -12,7 +12,7 @@ var mongoose = require('mongoose'),
   
 exports.list_all_students = function (req, res) {
  
-  Student.find({}, function (err, student) {
+  Student.find({"classId":req.params.classId}, function (err, student) {
     if (err)
       res.send(err);
     res.json(student);

@@ -4,6 +4,7 @@ module.exports = function(app) {
   userHandlers = require('../controllers/userController.js'),
   fileUpload=require('../controllers/fileController'),
   bodyParser = require('body-parser');
+  var attendance=require('../controllers/attendanceController');
  
   app.use(bodyParser.json());
   // studentList Routes
@@ -13,7 +14,7 @@ module.exports = function(app) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
   });
-  app.route('/studentsList')
+  app.route('/studentsList/:classId')
     .get(studentList.list_all_students)
     .post(studentList.add_a_student);
 
@@ -32,6 +33,8 @@ module.exports = function(app) {
     .post(userHandlers.sign_in);
     app.route('/upload')
     .post(fileUpload.fileUpload);
+    app.route('/report')
+    .post(attendance.markattendance);
     
     
 };
