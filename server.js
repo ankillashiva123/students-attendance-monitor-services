@@ -1,16 +1,17 @@
 var express = require('express'),
   app = express(),
-  port = process.env.PORT ||3000,
+  port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
   Student = require('./api/models/studentListModel'), //created model loading here
   bodyParser = require('body-parser'),
   jsonwebtoken= require('jsonwebtoken'),
    User = require('./api/models/userModel');
 //jsonwebtoken = require("jsonwebtoken");
+var config = require('./config.js').get(process.env.NODE_ENV);
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Studentdb'); 
+mongoose.connect(config.database); 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

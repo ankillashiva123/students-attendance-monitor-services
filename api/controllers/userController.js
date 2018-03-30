@@ -28,7 +28,7 @@ exports.register = function(req,res){
           from: 'ankillashiva123@gmail.com',
           to: req.body.email,
           subject: 'Attenance Monotoring System Login Credentials',
-          text: 'Username:'+req.body.email+",passsword: "+req.body.password
+          text: '<h2>Welcome to the Attendance monatoring system</h2><br>User username and password is <br> Username:'+req.body.email+",<br>passsword: "+req.body.password
         };
         
         transporter.sendMail(mailOptions, function(error, info){

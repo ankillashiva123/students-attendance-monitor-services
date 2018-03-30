@@ -4,18 +4,20 @@
   "description": "This is used to create api's for attendance monitoring",
   "main": "index.js",
   "scripts": {
+    "production": "cross-env NODE_ENV=production node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "attendance"
   ],
   "author": "shiva reddy",
-  "license": "ISC",
   "devDependencies": {
+    "cross-env": "^5.1.4",
     "nodemon": "^1.14.11"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
+    "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.1",
     "mongoose": "^4.8.5",

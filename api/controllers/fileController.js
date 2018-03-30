@@ -27,7 +27,7 @@ var upload = multer({ //multer settings
 exports.fileUpload = function (req, res) {
     var exceltojson;
     upload(req, res, function (err) {
-        console.log(req.body);
+        
         if (err) {
             res.json({ error_code: 1, err_desc: err });
 
