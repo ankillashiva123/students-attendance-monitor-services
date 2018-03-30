@@ -1,13 +1,16 @@
-{
+
   "name": "attendance-monitor-services",
   "version": "1.0.0",
   "description": "This is used to create api's for attendance monitoring",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "production": "cross-env NODE_ENV=production node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+   "engines": {
+    "node": "6.9.4"  
+   },
   "keywords": [
     "attendance"
   ],
