@@ -31,8 +31,9 @@ module.exports = function(app) {
 
     app.route('/auth/sign_in')
     .post(userHandlers.sign_in);
-    app.route('/upload/:classId')
+    app.route('/upload')
     .post(fileUpload.fileUpload);
+   
     app.route('/report')
     .post(attendance.markattendance);
     

@@ -6,7 +6,6 @@ var AttendanceSchema = new Schema({
     },
     day: {
         type: Date,
-        required: true,
         default: Date.now,
         unique: true
     },

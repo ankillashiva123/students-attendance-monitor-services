@@ -3,7 +3,10 @@ var mongoose = require('mongoose');
 var moment = require('moment');
 Attendance = mongoose.model('Attendance');
 exports.markattendance = function (req, res) {
-  console.log(req.body);
+  
+  //var array = JSON.parse(req.body.absenties);
+  //console.log(array);
+  
   var new_student = new Attendance(req.body);
   new_student.save(function (err, student) {
     if (err)
@@ -20,8 +23,7 @@ exports.getallrecords = function (req, res) {
   });
 };
 exports.getbydate = function (req, res) {
-  var startDate = req.body.startDate;
-  var endDate = req.body.endDate;
+  
   //find all the record whose start & end date is between than starting & ending dates
   Attendance.find({ start: { $gte: startDate }, end: { $lte: endDate } }, function (err, records) {
     if (err)

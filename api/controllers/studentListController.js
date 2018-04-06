@@ -24,8 +24,9 @@ exports.add_a_student = function (req, res) {
  
   var new_student = new Student(req.body);
   new_student.save(function (err, student) {
-    if (err)
+      if (err)
       res.send(err);
+      
     res.json(student);
   });
 };
@@ -90,7 +91,7 @@ exports.delete_a_student = function (req, res) {
   }, function (err, student) {
     if (err)
       res.send(err);
-    res.json({ message: 'Task successfully deleted' });
+    res.json({ message: 'Student successfully deleted' });
   });
 };
 
