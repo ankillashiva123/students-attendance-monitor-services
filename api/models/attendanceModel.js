@@ -2,16 +2,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var AttendanceSchema = new Schema({
-    class: { type: String 
+    class: { type: Number 
     },
     day: {
         type: Date,
         default: Date.now,
         unique: true
     },
-    absenties: []
-
-
+    absenties:  [{type: String
+    }]
 });
 
 module.exports = mongoose.model('Attendance', AttendanceSchema);
