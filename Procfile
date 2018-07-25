@@ -1,1 +1,1 @@
-npm run production
+web: node server.js
