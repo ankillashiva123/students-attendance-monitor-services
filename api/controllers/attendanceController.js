@@ -65,7 +65,7 @@ exports.getStudentsPercentage = function (req, res) {
       console.log(key, absentiesMapping[key]);
       
       var percentage = totalPresentDays > 0 ? 
-          ((absentiesMapping[key].noOfAbsentDays)/(totalPresentDays)) * 100 : 0;
+          ((totalPresentDays-absentiesMapping[key].noOfAbsentDays)/(totalPresentDays)) * 100 : 0;
 
       studentsPercentage.push({
         studentId: key,
